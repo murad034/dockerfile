@@ -1,7 +1,7 @@
 # Use PHP 7.3 with Apache
 FROM php:7.3-apache
 
-LABEL Author="Murad" Description="Prepared for HAJJ PORTAL PHP 7.3 and Node with vue js support"
+LABEL Author="Murad" Description="Prepared for ehajj PHP 7.3 and Node with vue js support"
 
 # Install required system packages
 RUN apt-get update && \
