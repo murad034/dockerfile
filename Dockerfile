@@ -8,7 +8,7 @@ RUN apt-get update && \
     apt-get install -y \
     git \
     curl \
-    libzip-dev \
+	libzip-dev \
     zip \
     unzip \
     nano \
@@ -22,13 +22,13 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Configure GD extension
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg
+RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
 
 # Install and enable PHP extensions
 RUN docker-php-ext-install gd pdo pdo_mysql zip mbstring exif
 
 # Install Redis extension
-RUN pecl install redis && \
+RUN pecl install redis-4.3.0 && \
     docker-php-ext-enable redis
 
 # Enable Apache modules
